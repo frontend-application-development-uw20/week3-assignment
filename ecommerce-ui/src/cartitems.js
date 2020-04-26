@@ -1,12 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 
 class CartItems extends React.Component {
+  static propTypes = {
+    cartitems: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        houseType: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        location: PropTypes.shape({
+          city: PropTypes.string.isRequired,
+          country: PropTypes.string.isRequired
+        }).isRequired,
+        payment: PropTypes.shape({
+          cost: PropTypes.number.isRequired,
+          description: PropTypes.string.isRequired
+        }).isRequired,
+        host: PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          isSuperhost: PropTypes.bool.isRequired
+        }).isRequired,
+        rating: PropTypes.shape({
+          stars: PropTypes.number.isRequired,
+          reviews: PropTypes.number.isRequired
+        }).isRequired
+      })
+    ).isRequired,
+    removeitems: PropTypes.func.isRequired,
+    total: PropTypes.number.isRequired,
+  }
 
   render() {
     const {cartitems, removeitems, total} = this.props;

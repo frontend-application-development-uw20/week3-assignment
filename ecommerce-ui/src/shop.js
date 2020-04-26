@@ -20,23 +20,25 @@ class Shop extends React.Component {
     }
   }
 
-  addItemToCart = (e) => {
-    e.preventDefault();
-    const shopTargetBlockID = e.target.parentNode.parentNode.id;
-    const shopTargetCleanID = shopTargetBlockID.replace(/\D+/g, '');
-
-    this.setState(state => {
-      const cartitems = [...state.cartitems, airbnbs[shopTargetCleanID]];
-      return {
-        cartitems
-      };
-    });
+  addItemToCart = (index) => {
+    return (e) => {
+      const newCartitems = [...this.state.cartitems, this.state.shopitems[index]];
+      const newTotal = this.state.total + this.state.shopitems[index].payment.cost;
+      this.setState({
+        cartitems: newCartitems,
+        total: newTotal
+      })
+    }
   }
 
   removeItemFromCart = (index) => {
     return (e) => {
       const newCartitems = this.state.cartitems.filter((item, j) => index !== j);
-      this.setState({ cartitems: newCartitems });
+      const newTotal = this.state.total - this.state.cartitems[index].payment.cost;
+      this.setState({
+        cartitems: newCartitems,
+        total: newTotal
+      });
     }
   }
 
@@ -52,7 +54,6 @@ class Shop extends React.Component {
   render() {
 
     return (
-      console.log(this.state.shopitems),
       <div>
         <AppBar position="static">
           <Toolbar>

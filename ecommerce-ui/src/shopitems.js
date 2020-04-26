@@ -67,6 +67,7 @@ class ShopItems extends React.Component {
         }).isRequired
       })
     ).isRequired,
+    additems: PropTypes.func.isRequired,
   }
 
   render() {
@@ -82,7 +83,7 @@ class ShopItems extends React.Component {
             <Payment input={item.payment}/>
             <Host input={item.host}/>
             <Ratings input={item.rating}/>
-            <Button variant="contained" id={`addBtnItem${index}`} onClick={additems}>ADD TO CART</Button>
+            <Button variant="contained" id={`addBtnItem${index}`} onClick={additems(index)}>ADD TO CART</Button>
           </Grid>
         )}
         </Grid>
