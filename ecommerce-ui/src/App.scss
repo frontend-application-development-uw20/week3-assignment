@@ -1,0 +1,255 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 15px;
+  margin: 2rem 3rem;
+  
+}
+
+h1, h2, h3, p {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.mainContainer {
+  margin: 2rem;
+}
+
+.mainContent {
+  margin: 2rem 0rem;
+}
+
+// ------------ HEADER / NAVBAR ---------------
+header {
+  border-bottom: lightgray 1px solid;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem 2rem 0rem;
+    h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+    } 
+    button {
+      background: transparent;
+      border: none;
+    }
+  }
+}
+
+// ------------ CARD STYLING ---------------
+.card {
+  position: relative;
+  .imageContent {
+    position: relative;
+  }
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    transform: scale(1.01);
+  }
+  .description {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    padding: 0.25rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+  .cardContent {
+    padding: 0.5rem;
+    padding-top: 1rem;
+    border: lightgray solid 1px;
+    border-top: none;
+    top: -8px;
+    position: relative;
+    z-index: 0;
+    h3 {
+      margin: 0.3rem 0rem;
+    }
+    em {
+      font-weight: 700;
+    }
+    p {
+      line-height: 1.5rem;
+      overflow: hidden;
+    }
+    button {
+      margin: 0.5rem 0rem;
+    }
+  }
+}
+
+
+// ------------ MAIN CONTAINER STYLING ---------------
+.hotelContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+  grid-gap: 2rem;
+}
+
+
+// ------------ SHOPPING CART STYLING ---------------
+.shoppingCart {
+    border: solid 2px lightgray;
+    border-radius: 1rem;
+    position: fixed;
+    background: white;
+    width: 90%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 60%;
+    max-height:700px;
+    z-index: 25;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    visibility: hidden;
+    transform: translateY(-50px);
+    transition: all 500ms ease-in-out;
+    opacity: 0;
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      padding: 1rem 0rem;
+      border-bottom: solid 1px lightgray;
+    }
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: white;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .total {
+      text-align: right;
+      padding: 1rem 2rem;
+      font-weight: 700;
+    }
+  }
+.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+.cartItem {
+  display: flex;
+  position: relative;
+  flex-basis: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem 1rem 2rem;
+  border-bottom: lightgray solid 1px;
+  img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+  }
+  .trash {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+  }
+}
+
+// ------------ FORM STYLING ---------------
+.form {
+  border: solid 2px lightgray;
+  border-radius: 1rem;
+  position: fixed;
+  background: white;
+  width: 90%;
+  max-width: 700px;
+  z-index: 50;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40px;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  transform: translateY(-50px);
+  transition: all 500ms ease-in-out;
+  opacity: 0;
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: 1rem 0rem;
+    border-bottom: solid 1px lightgray;
+  }
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    text-align: left;
+  }
+  .formGroup {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: space-between;
+  }
+  label, input, select {
+    display: block;
+    margin: 0.5rem;
+    width: 100%;
+    height: 1.5rem;
+  }
+  .checkbox {
+    display: flex;
+    align-items: center;
+  }
+  .button {
+    margin: 2rem;
+  }
+}
+.showForm {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+// ------------ RATING COMPONENT STYLING ---------------
+.rating {
+  position: absolute;
+  color: goldenrod;
+  background: linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5), rgba(0,0,0,0), rgba(0,0,0,0));
+  padding: 0.5rem;
+  width: 100%;
+  top: 0;
+  z-index: 15;
+  border-radius: 1rem 0rem 0rem 0rem;
+  transform: scale(1.01);
+}

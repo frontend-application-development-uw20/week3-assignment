@@ -1,0 +1,129 @@
+[
+    {
+        "title": "Centrally-located Manhattan studio",
+        "houseType": "Apartment",
+        "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
+        "location": {
+            "city": "New York",
+            "country": "USA"
+        },
+        "payment": {
+            "cost": 105,
+            "description": "Free cancellation"
+        },
+        "host": {
+            "name": "Robert",
+            "isSuperhost": true
+        },
+        "rating": {
+            "stars": 3,
+            "reviews": 133
+        }
+    },
+    {
+        "title": "Denver apartment outside Union Station",
+        "houseType": "Apartment",
+        "image": "https://images.unsplash.com/photo-1534595038511-9f219fe0c979?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
+        "location": {
+            "city": "Denver",
+            "country": "USA"
+        },
+        "payment": {
+            "cost": 130,
+            "description": ""
+        },
+        "host": {
+            "name": "Jamie",
+            "isSuperhost": true
+        },
+        "rating": {
+            "stars": 4.5,
+            "reviews": 381
+        }
+    },
+    {
+        "title": "Quaint 3-bedroom home in Gamla stan",
+        "houseType": "Entire House",
+        "image": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
+        "location": {
+            "city": "Stockholm",
+            "country": "Sweden"
+        },
+        "payment": {
+            "cost": 230,
+            "description": "Free cancellation"
+        },
+        "host": {
+            "name": "Olivia",
+            "isSuperhost": false
+        },
+        "rating": {
+            "stars": 5,
+            "reviews": 83
+        }
+    },
+    {
+        "title": "Short walk to downtown Bellevue",
+        "houseType": "Entire house",
+        "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
+        "location": {
+            "city": "Bellevue",
+            "country": "USA"
+        },
+        "payment": {
+            "cost": 205,
+            "description": ""
+        },
+        "host": {
+            "name": "Jamie",
+            "isSuperhost": true
+        },
+        "rating": {
+            "stars": 5,
+            "reviews": 381
+        }
+    },
+    {
+        "title": "Five-minute walk to Pike Place Market",
+        "houseType": "Private Room",
+        "image": "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60",
+        "location": {
+            "city": "Seattle",
+            "country": "USA"
+        },
+        "payment": {
+            "cost": 150,
+            "description": "Free cancellation"
+        },
+        "host": {
+            "name": "Jamie",
+            "isSuperhost": true
+        },
+        "rating": {
+            "stars": 4.5,
+            "reviews": 500
+        }
+    },
+    {
+        "title": "Cozy room for the whole family",
+        "houseType": "Public Room",
+        "image": "https://images.unsplash.com/photo-1543359398-faa916219f1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
+        "location": {
+            "city": "Seattle",
+            "country": "USA"
+        },
+        "payment": {
+            "cost": 230,
+            "description": ""
+        },
+        "host": {
+            "name": "Jamie",
+            "isSuperhost": true
+        },
+        "rating": {
+            "stars": 2,
+            "reviews": 60
+        }
+    }
+    
+]
