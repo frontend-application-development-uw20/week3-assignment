@@ -30,7 +30,7 @@ export default class Airbnb_card extends React.Component {
                             <p><i className="material-icons">person</i> 
                             {isSuperhost? (<em>{this.props.card.host.name} (Superhost)</em>) : (<em>{this.props.card.host.name}</em>)}</p>
                         <div>
-                            <button className= "button" onClick={(e) => this.props.onClick(e, this.props.id)}>Add</button>
+                            <button className= "button" onClick={(e) => this.props.onClick(e, this.props.id)}>Add to cart</button>
                         </div>
                         
                     </div>
