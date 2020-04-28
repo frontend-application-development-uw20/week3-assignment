@@ -68,14 +68,26 @@ h2{
   font-style: oblique;
 }
 
+
+.section{
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 20px
+}
+
 .home{
   
   padding: 20 auto;
-  width: 55%;
+  width: auto;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   gap: 20px;
   
+}
+
+.cart{
+  text-align: center;
+
 }
 
 .each_card{
@@ -120,4 +132,13 @@ h2{
   gap: 10px;
   color:  rgb(70, 68, 68);
 }
+
+.shopping_list{
+  text-align: left;
+}
+
+/* .button{
+  border: solid #ff5a5f;
+  
+} */
   

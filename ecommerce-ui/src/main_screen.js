@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import airbnb_details from './airbnbs.json';
-import Airbnb_details from './Airbnb_Details';
+import Airbnb_list from './Airbnb_list';
+import Cart from './Cart';
 
 
 
@@ -42,21 +43,90 @@ class Main_screen extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            airbnb_details: airbnb_details
+            airbnb_details: airbnb_details,
+            cartList: []
+         
         }
+        this.handleClick = this.handleClick.bind(this);
+        this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
        
     }
 
+    handleClick(e, id) {
+        console.log("clicked!*******");
+        console.log(id);
+        let thisCard = document.getElementById(id);
+        let thisCardTitle = document.getElementById(id+"-title");
+        let thisCardCost = document.getElementById(id+"-cost");
+        console.log(thisCardTitle.innerText);
+        let itemClicked = {
+            "id": id,
+            "title": thisCardTitle.innerText,
+            "cost": thisCardCost.innerText
+        }
+        let itemAlreadyInCard = false;
+       this.setState(prevState=>{
+           const cartList= prevState.cartList;
+           cartList.forEach(item => {
+               console.log("looping through cart!")
+               if(item.id === id){
+                   console.log("item already in cart: "+item.id)
+                   itemAlreadyInCard = true;
+                   //Nothing to do
+               }
+           });
+           
+           if(!itemAlreadyInCard){
+               console.log("not in cart")
+                cartList.push(itemClicked);
+           }
 
-    renderAirbnb_details(){
-        return <Airbnb_details airbnb_details={this.state.airbnb_details} />
+           return cartList;
+           
+       });
+    
+      
+    }
+
+
+    handleRemoveFromCart(e,item){
+        this.setState(prevState=>{
+           const cartList= prevState.cartList.filter(elm => elm.id!= item.id)
+
+           return {cartList}
+
+        });
+
+    }
+
+
+
+    renderAirbnb_list(){
+        return <Airbnb_list airbnb_details={this.state.airbnb_details} onClick={this.handleClick}/>
+    }
+    renderCart(){
+        return <Cart cartList= {this.state.cartList} handleRemoveFromCart= {this.handleRemoveFromCart} />
+    
     }
 
     render(){
         return(
             <div>
-                {this.renderAirbnb_details()}
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
+                <hr></hr >
+                <div>
+                    <i className="material-icons">house</i>
+                    <h2 className= "heading">@Home Rentals</h2>
+                </div>
+                <hr />
+                <div className= "section">
+                {this.renderAirbnb_list()}          
+                {this.renderCart()}
+                </div>
+
             </div>
+            
+        
             
         );
     }
