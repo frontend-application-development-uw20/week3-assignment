@@ -32,30 +32,26 @@ class ShoppingCart extends React.Component {
         })
     }
 
-    // state = { count: 0, total: 0 }
-    // total = 0
+    index = this.props.propid;
 
-    handleAddToCart = () => {
-        this.setState({ count: this.state.count + 1, total: this.state.total + this.props.payment.cost });
-        // this.setState({ count: this.state.count + 1 });
-        // this.setState({ total: this.state.total + this.props.payment.cost })
+    handleAddToCart = (props) => {
+        this.setState({ count: this.state.count + 1, total: this.state.total + props });
     }
 
 
-    handleEmptyCart = () => {
-        this.setState({ count: this.state.count - 1 })
-        this.setState({ total: this.state.total - this.props.payment.cost })
+    handleEmptyCart = (props) => {
+        this.setState({ count: this.state.count - 1, total: this.state.total - props })
     }
     
 
     render() {
-        console.log(this.state.total)
-        console.log(this.state.count)
-        console.log(this.total)
+        // console.log(this.state.total)
+        // console.log(this.state.count)
+        // console.log(this.total)
         // console.log(this.props.payment.cost)
         return (
             <div>
-                <p> <button onClick={this.handleAddToCart}>Reserve</button> {this.state.count === 0 ? "cart is empty" : ""} <button className={this.state.count === 0 ? "hide-element": ""} onClick={this.handleEmptyCart}>Remove</button></p>
+                <p>This Cart contains {this.state.count} items</p>
             </div>
         );
     }

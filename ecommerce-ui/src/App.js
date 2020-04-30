@@ -5,22 +5,27 @@ import VacationRentals from "./VacationRental";
 import ShoppingCart from "./ShoppingCart";
 
 function App() {
+  // console.log(airbnbs[0].payment.cost);
   return (
     <div className="App">
       <h1 className="mainTitle">VACTION RENTALS</h1>
-      <div className="property">
-        {airbnbs.map((vacationObj, index) => {
-          vacationObj.key = index;
-          return <VacationRentals {...vacationObj} />
-        })}
+        <div className="container">
+          <div className="flex-item items">
+            <div className="item">
+              {airbnbs.map((vacationObj, index) => {
+                vacationObj.key = index;
+                console.log(airbnbs[index])
+                return <VacationRentals {...vacationObj} />
+              })}
+            </div>
+          </div>
+          <div className="flex-item cart">
+            <div className="cart">
+              <ShoppingCart />
+            </div>
+          </div>
       </div>
-      <div>
-        {airbnbs.map((cartObj, index) => {
-          cartObj.key = index;
-          return <ShoppingCart {...cartObj} />
-        })}
-      </div>
-    </div>
+  </div>
   );
 }
 
