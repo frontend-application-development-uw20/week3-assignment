@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaStar } from 'react-icons/fa';
 
+class ShoppingCart extends React.Component {
 
-class VacationRental extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0, total: 0 }
+      }
+
     static propTypes = {
         vacationObj: PropTypes.shape({
             title: PropTypes.string.isRequired,
@@ -28,32 +32,33 @@ class VacationRental extends React.Component {
         })
     }
 
-    state = { count: 0, total: 0 }
+    // state = { count: 0, total: 0 }
+    // total = 0
 
     handleAddToCart = () => {
-        this.setState({ count: this.state.count + 1 });
-        this.setState({ total: this.state.count * this.props.payment.price })
+        this.setState({ count: this.state.count + 1, total: this.state.total + this.props.payment.cost });
+        // this.setState({ count: this.state.count + 1 });
+        // this.setState({ total: this.state.total + this.props.payment.cost })
     }
+
 
     handleEmptyCart = () => {
         this.setState({ count: this.state.count - 1 })
-        this.setState({ total: this.state.total - this.props.payment.price })
+        this.setState({ total: this.state.total - this.props.payment.cost })
     }
     
 
     render() {
         console.log(this.state.total)
+        console.log(this.state.count)
+        console.log(this.total)
+        // console.log(this.props.payment.cost)
         return (
             <div>
-                <h3>{this.props.title} ({this.props.houseType})</h3>
-                <p><b>{this.props.rating.stars}</b><FaStar />'s ({this.props.rating.reviews} reviews) ---- Cost: ${this.props.payment.cost}</p>
-                <p className={this.props.host.isSuperhost === false ? 'hide-element' : 'show-element'}><b><u>{this.props.host.name}</u></b> is a Super Host!</p>
-                <img className="propertyImage" alt="property pic" src={this.props.image} />
-                <br></br><br></br><br></br>
+                <p> <button onClick={this.handleAddToCart}>Reserve</button> {this.state.count === 0 ? "cart is empty" : ""} <button className={this.state.count === 0 ? "hide-element": ""} onClick={this.handleEmptyCart}>Remove</button></p>
             </div>
-
         );
     }
 }
 
-export default VacationRental;
+export default ShoppingCart;

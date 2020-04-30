@@ -11,11 +11,20 @@
   /* grid-template-columns: (2, 1fr); */
   grid-template-rows: repeat(3, 1fr);
   grid-auto-flow: column;
-  padding-left: 30%;
+  padding-left: 40%;
   text-align: left;
 
 }
 
-.false {
+.cart {
+  /* display: grid; */
+  /* grid-template-columns: (2, 1fr); */
+  /* grid-template-rows: repeat(3, 1fr); */
+  /* grid-auto-flow: column; */
+  padding-left: 40%;
+  text-align: left;
+}
+
+.hide-element {
   display: none;
 }

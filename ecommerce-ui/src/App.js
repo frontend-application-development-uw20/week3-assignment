@@ -1,8 +1,8 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import airbnbs from "./airbnbs.json";
-import VacationRentals from "./VacationRental"
+import VacationRentals from "./VacationRental";
+import ShoppingCart from "./ShoppingCart";
 
 function App() {
   return (
@@ -12,6 +12,12 @@ function App() {
         {airbnbs.map((vacationObj, index) => {
           vacationObj.key = index;
           return <VacationRentals {...vacationObj} />
+        })}
+      </div>
+      <div>
+        {airbnbs.map((cartObj, index) => {
+          cartObj.key = index;
+          return <ShoppingCart {...cartObj} />
         })}
       </div>
     </div>
