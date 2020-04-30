@@ -32,3 +32,15 @@
 .hide-element {
   display: none;
 }
+
+.reserve {
+  background-color: cornflowerblue;
+}
+
+.remove {
+  background-color: lightcoral;
+}
+
+.sticky-top {
+  position: sticky;
+}

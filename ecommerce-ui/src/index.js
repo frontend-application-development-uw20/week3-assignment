@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-globally'
+// import CounterControls from './CounterControl'
+// import CounterInfo from './CounterInfo'
+
+const initialState = {
+  cart: 0
+}
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider globalState={initialState}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaUser } from 'react-icons/fa';
+import { withGlobalState } from 'react-globally'
 
 
 
@@ -36,31 +37,32 @@ class VacationRental extends React.Component {
     }
 
     handleAddToCart = (props) => {
-        this.setState({ count: this.state.count + 1, total: this.state.total + props });
+        this.setState({ count: 1 });
+        this.props.setGlobalState({cart: (this.props.globalState.cart + props)})
+
+
     }
 
     handleEmptyCart = (props) => {
-        this.setState({ count: this.state.count - 1, total: this.state.total - props })
+        this.setState({ count: 0 });
+        this.props.setGlobalState({cart: (this.props.globalState.cart - props)})
+
     }
 
-    // showCart = () => {
-    //     return this.state.count
-    // }
     
 
     render() {
-        console.log(this.state.total)
         return (
             <div>
-                <h3>{this.props.title} ({this.props.houseType})</h3>
-                <p><b>{this.props.rating.stars}</b><FaStar />'s ({this.props.rating.reviews} reviews) ---- Cost: ${this.props.payment.cost}</p>
-                <p className={this.props.host.isSuperhost === false ? 'hide-element' : 'show-element'}><b><u>{this.props.host.name}</u></b> is a Super Host!</p>
-                <p> <button className={this.state.count === 1 ? "hide-element": ""} onClick={() => this.handleAddToCart (this.props.payment.cost) }>Reserve</button>  <button className={this.state.count === 0 ? "hide-element": ""} onClick={() => this.handleEmptyCart (this.props.payment.cost) }>Remove</button></p>
+                <hr></hr><br></br><br></br>
                 <img className="propertyImage" alt="property pic" src={this.props.image} />
-                <br></br><br></br><br></br>
+                <h3>{this.props.title} ({this.props.houseType})</h3>
+                <p><b><FaUser /> <u>{this.props.host.name}</u></b> <b className={this.props.host.isSuperhost === false ? 'hide-element' : 'show-element'}>(Super Host)</b></p>
+                <p><b>{this.props.rating.stars}</b><FaStar />'s ({this.props.rating.reviews} reviews) ---- Cost: ${this.props.payment.cost} <button className={this.state.count === 1 ? "hide-element": "reserve"} onClick={() => this.handleAddToCart (this.props.payment.cost)}>Reserve</button>  <button className={this.state.count === 0 ? "hide-element" : "remove"} onClick={() => this.handleEmptyCart (this.props.payment.cost) }>Remove</button></p>
+                <br></br>
             </div>
         );
     }
 }
 
-export default VacationRental;
+export default withGlobalState(VacationRental);
