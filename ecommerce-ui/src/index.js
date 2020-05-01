@@ -8,7 +8,8 @@ import { Provider } from 'react-globally'
 // import CounterInfo from './CounterInfo'
 
 const initialState = {
-  cart: 0
+  cart: 0,
+  title: []
 }
 
 ReactDOM.render(
