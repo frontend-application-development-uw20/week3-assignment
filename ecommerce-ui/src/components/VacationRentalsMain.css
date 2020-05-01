@@ -1,0 +1,33 @@
+body {
+  padding: 1rem;
+}
+
+section {
+  padding: 0 1rem 0 0.5rem;
+}
+
+.container-main {
+  display: grid;
+  grid-gap: 0.8rem;
+  grid-template-areas:
+    'productList shoppingCart';
+  grid-template-columns: 70vw 25vw;
+}
+#productList { 
+  grid-area: productList;
+}
+#shoppingCart { 
+  background: #f6f6f6;
+  border-radius: 7px;
+  grid-area: shoppingCart;
+  height: 90vh; 
+  overflow-y: scroll;
+}
+
+.header-primary {
+  border-bottom: 1px dotted #8c8c8c;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 0.7rem;
+}

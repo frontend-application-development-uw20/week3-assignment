@@ -1,0 +1,58 @@
+article {
+  border: 1px solid #a9a9a9;
+  color: #8c8c8c;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+article header {
+  color: #000;
+  font-size: 1rem;
+  padding: 8px 0 10px 10px;
+}
+
+article .image 
+{ 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 275px;
+}
+
+article > div {
+  border-bottom: 1px dotted #d2d2d2;
+  line-height: 2.5rem;
+}
+
+article > div:last-child {
+  border: none;
+}
+
+article .btn-add {
+  align-self: flex-end;
+  margin: 0 10px;
+  width: 43px;
+}
+article .btn-add:hover {
+  background: #f9efe5;
+  cursor: pointer;
+}
+
+article .icon-primary {
+  color: #cc6600;
+  font-size: 20px;
+}
+
+article .icon-secondary {
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 0 15px;
+  text-align: right;
+  width: 35px;
+}
+
+article .data {
+  color: #000;
+  font-size: 1rem;
+}
