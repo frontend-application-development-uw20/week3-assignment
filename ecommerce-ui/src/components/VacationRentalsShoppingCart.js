@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+import vacationRentalProductType from './types';
 import './VacationRentalsShoppingCart.css';
 
 
@@ -10,6 +12,13 @@ export default class VacationRentalsShoppingCart extends React.Component {
   // Be displayed next to the vacation rentals.
   // Allow the user to remove a vacation rental from the cart if they change their mind.
   // Display the total payment due based on the vacation rentals in the cart.
+
+  static propTypes = {
+    cartItems: PropTypes.arrayOf(
+      vacationRentalProductType.isRequired,
+    ).isRequired,
+    onCartRemove: PropTypes.func.isRequired,
+  }
 
   computeTotalPayment() {
     const payment = this.props.cartItems.reduce((accum, item) => accum + item.payment.cost, 0);
@@ -80,4 +89,9 @@ function VacationRentalsShoppingCartItem(props) {
       
     </div>
   );
+}
+VacationRentalsShoppingCartItem.propTypes = {
+  index: PropTypes.number.isRequired,
+  cartItem: vacationRentalProductType.isRequired,
+  onCartRemove: PropTypes.func.isRequired,
 }

@@ -1,9 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faBuilding, faChartBar, faMoneyBillWave, faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+import vacationRentalProductType from './types';
 import './VacationRentalsProduct.css'
 
 export default class VacationRentalsProduct extends React.Component {
+
+  static propTypes = {
+    product: vacationRentalProductType.isRequired,
+    onCartAdd: PropTypes.func.isRequired,
+  }
 
   //At minimum, your UI should display the title, image, and payment information.
   render() {
