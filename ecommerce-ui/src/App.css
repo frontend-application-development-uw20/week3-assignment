@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+.background {
+  background-color: rgb(190, 135, 118);
+}
+
+.container {
+  display: flex;
+}
+
+.flex-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.propertyImage {
+  border:10px solid rgb(0,0,0,.4);
+}
+
+.hide-element {
+  display: none;
+}
+
+.reserve {
+  background-color: cornflowerblue;
+}
+
+.remove {
+  background-color: lightcoral;
+}
+
