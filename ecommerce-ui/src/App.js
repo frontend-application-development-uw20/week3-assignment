@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MainPage from './MainPage.js';
+import ShoppingCart from './ShoppingCart.js';
 import Airbnbs from './airbnbs.json';
 
 function App() {
   return (
     <div className="App">
-      <MainPage />
+      <ShoppingCart />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

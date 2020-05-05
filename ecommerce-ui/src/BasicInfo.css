@@ -3,16 +3,31 @@ h1 {
     text-align: left;
 }
 
-.container {
+div {
+    text-align: left;
+}
+
+/* .column {
+    float: left;
+  }
+  
+  .left {
+    width: 50%;
+  }
+  
+  .right {
+    width: 50%;
+  } */ 
+/* .container {
     display: inline-table;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: left;
 }
 
 .child {
     display: block;
     text-align: left;
-}
+} */
 
 /* .payment {
     display: inline-block;
