@@ -1,0 +1,8 @@
+.card {
+  display: flex;
+  border-radius: 10px;
+}
+
+.cartItem {
+  font-size: 18px;
+}
