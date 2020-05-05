@@ -12,12 +12,14 @@ import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { CircularProgress } from "@material-ui/core";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import ShoppingCart from './cart';
+
 
 
 class AirCard extends React.Component {
+
   render() {
     const classes = this.props.styles;
-    const Cart = this.props.cart;
     const {
       title,
       houseType,
@@ -27,7 +29,8 @@ class AirCard extends React.Component {
       host,
       rating
     } = this.props.data;
-
+ 
+    
     return (
       <Card className={classes.root}>
         <CardHeader
