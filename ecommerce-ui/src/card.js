@@ -12,11 +12,27 @@ import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { CircularProgress } from "@material-ui/core";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import ShoppingCart from './cart';
-
-
 
 class AirCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cartItems: [
+        { id: "Denver House", price: "11" },
+        { id: "St. Louis House", price: "12" },
+      ],
+    };
+  }
+
+  addCartItem = () => {
+    this.setState({
+        cartItems: [...this.state.cartItems, this.state.newCartItem],
+        newCartItem: {
+            id: '',
+            price: ''
+        }
+    })
+}
 
   render() {
     const classes = this.props.styles;
@@ -98,7 +114,7 @@ class AirCard extends React.Component {
           <IconButton aria-label="share">
             <ShareIcon />
           </IconButton>
-          <IconButton color="primary" aria-label="add to shopping cart">
+          <IconButton color="primary" aria-label="add to shopping cart" onClick="{this.addCartItem()}">
             <AddShoppingCartIcon />
           </IconButton>
         </CardActions>
