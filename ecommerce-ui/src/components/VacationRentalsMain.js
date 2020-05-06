@@ -2,13 +2,14 @@ import React from 'react';
 import airbnbs from '../data/airbnbs.json';
 import './VacationRentalsMain.css';
 import VacationRentalsProductList from './VacationRentalsProductList';
-import VacationRentalsShoppingCart from './VacationRentalsShoppingCart';
+import {VacationRentalsShoppingCart, VacationRentalsShoppingCartToggle} from './VacationRentalsShoppingCart';
 
 export default class VacationRentalsMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cartItems: []
+      cartItems: [],
+      displayCart: true,
     }
   }
 
@@ -26,8 +27,14 @@ export default class VacationRentalsMain extends React.Component {
     });
   }
 
+  handleCartToggleDisplay = (e) => {
+    this.setState((state) => {
+      return {displayCart: !state.displayCart};
+    })
+  }
+
   render() {
-    const cartItems = this.state.cartItems;
+    const {cartItems, displayCart} = this.state;
 
     return(    
       <div className="container-main">
@@ -36,7 +43,12 @@ export default class VacationRentalsMain extends React.Component {
           <VacationRentalsProductList products={airbnbs} onCartAdd={this.handleCartAdd} />
         </section>
 
-        <section id="shoppingCart">
+        {/* BONUS: Make the shopping cart hideable/showable, in order to avoid clutter. This could be implemented as a hide/show cart button. */}
+        <section id="shoppingCartToggle">
+          <VacationRentalsShoppingCartToggle displayCart={displayCart} onCartToggleDisplay={this.handleCartToggleDisplay} />
+        </section>
+
+        <section id="shoppingCart" className={displayCart ? 'cart-show' : 'cart-hide'}>
           <VacationRentalsShoppingCart cartItems={cartItems} onCartRemove={this.handleCartRemove} />
         </section>
 

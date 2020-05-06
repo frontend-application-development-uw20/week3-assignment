@@ -8,7 +8,7 @@ import './VacationRentalsShoppingCart.css';
 
 // Class component:
 // Represents the shopping cart for vacation rentals.
-export default class VacationRentalsShoppingCart extends React.Component {
+class VacationRentalsShoppingCart extends React.Component {
   // Be displayed next to the vacation rentals.
   // Allow the user to remove a vacation rental from the cart if they change their mind.
   // Display the total payment due based on the vacation rentals in the cart.
@@ -95,3 +95,26 @@ VacationRentalsShoppingCartItem.propTypes = {
   cartItem: vacationRentalProductType.isRequired,
   onCartRemove: PropTypes.func.isRequired,
 }
+
+
+// Function component:
+// Represents toggling the display of the shopping cart.
+function VacationRentalsShoppingCartToggle(props) {
+  const {displayCart, onCartToggleDisplay} = props;
+
+  const buttonText = displayCart
+    ? <><span>Hide</span></>
+    : <><FontAwesomeIcon icon={faShoppingCart} /><span>Show</span></>
+
+  return (
+    <div className="shopping-cart-toggle">
+      <button onClick={onCartToggleDisplay}>{buttonText}</button>
+    </div>
+  );
+}
+VacationRentalsShoppingCartToggle.propTypes = {
+  displayCart: PropTypes.bool.isRequired,
+  onCartToggleDisplay: PropTypes.func.isRequired,
+}
+
+export { VacationRentalsShoppingCart, VacationRentalsShoppingCartToggle };

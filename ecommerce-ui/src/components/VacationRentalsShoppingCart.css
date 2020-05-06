@@ -64,3 +64,15 @@
   align-self: flex-end;
   width: 80px;
 }
+
+.shopping-cart-toggle button {
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin: 5px;
+}
+.shopping-cart-toggle button svg {
+  color: #8c8c8c;
+  font-size: 1.1rem;
+  margin-right: 5px;
+  padding: 2px;
+}
