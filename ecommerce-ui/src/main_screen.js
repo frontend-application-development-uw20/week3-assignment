@@ -46,8 +46,31 @@ class Main_screen extends React.Component {
             airbnb_details: airbnb_details,
             cartList: [],
             hide: true,
-            showForm: false,
-            new_airbnb_details:[]
+            new_airbnbs:{
+                "title":'',
+                "houseType": ' ',
+                "image": ' ',
+                "location": {
+                    "city": ' ',
+                    "country": ' '
+                 },
+                "payment": {
+                    "cost": ' ' ,
+                    "description": ' '
+                 },
+                 "host": {
+                    "name": ' ',
+                    "isSuperhost": ' '
+                 },
+                 "rating": {
+                 "stars": ' ',
+                "reviews": ' '
+                 },
+                 
+        },
+            showForm: false
+                
+            
          
         }
         this.handleClick = this.handleClick.bind(this);
@@ -105,30 +128,109 @@ class Main_screen extends React.Component {
    
     }
 
+
+    addAirbnbs= (e) =>{
+        e.preventDefault();
+        this.setState({
+            airbnb_details:[...this.state.airbnb_details, this.state.new_airbnbs],
+            new_airbnbs:{
+                "title":'',
+                "houseType": ' ',
+                "image": ' ',
+                "location": {
+                    "city": ' ',
+                    "country": ' '
+                 },
+                "payment": {
+                    "cost": ' ' ,
+                    "description": ' '
+                 },
+                 "host": {
+                    "name": ' ',
+                    "isSuperhost": ' '
+                 },
+                 "rating": {
+                 "stars": ' ',
+                "reviews": ' '
+                 },
+            },
+            showForm: false
+
+        })
+    }
+
     renderForm () {
         
         return (
-            
-            
-            <div> 
-              <form id= "add-app" >
-                <label>Title: </label>
-                <input type="text" required />
+            <div ClassName= "new-airbnb-form">
+                <form onSubmit={this.addAirbnbs}>
+                    <label>Title: </label>
+                        <input type= "text" name= 'title' value={this.state.new_airbnbs.title} onChange= {this.handleInputChange}
+                        />
+                    <label> House Type : </label>
+                        <input type= "text" name= 'houseType' value={this.state.new_airbnbs.houseType} onChange= {this.handleInputChange}
+                        />
+                    <label> Image : </label>
+                        <input type= "url" name= 'image' value={this.state.new_airbnbs.image} onChange= {this.handleInputChange}
+                        />
+                    
+                    <label> City : </label> 
+                        <input type= "text" name= 'city' value={this.state.new_airbnbs.location.city} onChange= {this.handleInputChange}
+                        />
+                    <label> Country : </label> 
+                        <input type= "text" name= 'country' value={this.state.new_airbnbs.location.country} onChange= {this.handleInputChange}
+                        />
+                    <label> Cost : </label> 
+                        <input type= "text" name= 'cost' value={this.state.new_airbnbs.payment.cost} onChange= {this.handleInputChange}
+                        /> 
+                    <label> Payment Description : </label> 
+                        <input type= "text" name= 'description' value={this.state.new_airbnbs.payment.description} onChange= {this.handleInputChange}
+                        /> 
+                    <label> HostName : </label> 
+                        <input type= "text" name= 'name' value={this.state.new_airbnbs.host.name} onChange= {this.handleInputChange}
+                        /> 
+                    <label> isSuperhost: </label>
+                        <input type= "checkbox" name= 'IsSuperhost' value={this.state.new_airbnbs.host.isSuperhost} onChange= {this.handleInputChange}
+                        /> 
+                
 
-                <label> House Type : </label>
-                <input type= "text" />
-     
-                <label>Location: </label>
-                <input type="text" />
+                    <button type="submit">Add Airbnb</button>  
+            
+                    
+                </form>
+            </div>
 
-                <label>Image:</label>
-                <input type= "url" />
-     
-              <button type="submit" >Create</button>
-               </form>
-           </div>
+        
         );
      }
+
+    handleInputChange = (e) => {
+        const value= e.target.value;
+        console.log(e.target.name);
+        if (e.target.name === "city" ) {
+            this.setState({
+                new_airbnbs: {
+                    ...this.state.new_airbnbs,
+                    "location": {
+                        [e.target.name]: value,
+                    }
+                },
+                
+            })
+        }
+        
+        else {
+            this.setState({
+                new_airbnbs: {
+                    ...this.state.new_airbnbs,
+                    [e.target.name]: value,
+                    
+                },
+                
+            })
+        }
+        
+    }
 
     
 
@@ -154,6 +256,7 @@ class Main_screen extends React.Component {
                     <div>
                         <button className= "host" onClick={() => this.setState({showForm: true})}>Host your rental </button>
                         {this.state.showForm && this.renderForm()}
+                        
                     </div>
                     
                 </div>
