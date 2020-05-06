@@ -45,7 +45,9 @@ class Main_screen extends React.Component {
         this.state={
             airbnb_details: airbnb_details,
             cartList: [],
-            hide: true
+            hide: true,
+            showForm: false,
+            new_airbnb_details:[]
          
         }
         this.handleClick = this.handleClick.bind(this);
@@ -80,7 +82,7 @@ class Main_screen extends React.Component {
            });
            
            if(!itemAlreadyInCart){
-               console.log("not in cart")
+
                 cartList.push(itemClicked);
            }
 
@@ -93,14 +95,42 @@ class Main_screen extends React.Component {
 
 
     handleRemoveFromCart(e,item){
+        
         this.setState(prevState=>{
            const cartList= prevState.cartList.filter(elm => elm.id!= item.id)
-
            return {cartList}
-
+  
         });
-
+ 
+   
     }
+
+    renderForm () {
+        
+        return (
+            
+            
+            <div> 
+              <form id= "add-app" >
+                <label>Title: </label>
+                <input type="text" required />
+
+                <label> House Type : </label>
+                <input type= "text" />
+     
+                <label>Location: </label>
+                <input type="text" />
+
+                <label>Image:</label>
+                <input type= "url" />
+     
+              <button type="submit" >Create</button>
+               </form>
+           </div>
+        );
+     }
+
+    
 
 
 
@@ -118,9 +148,14 @@ class Main_screen extends React.Component {
             <div>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
                 <hr></hr >
-                <div>
+                <div className= "main_page">
                     <i className="material-icons">house</i>
                     <h2 className= "heading">@Home Rentals</h2>
+                    <div>
+                        <button className= "host" onClick={() => this.setState({showForm: true})}>Host your rental </button>
+                        {this.state.showForm && this.renderForm()}
+                    </div>
+                    
                 </div>
                 <hr />
                 <div className= "section">

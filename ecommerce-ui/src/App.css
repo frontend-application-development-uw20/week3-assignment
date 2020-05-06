@@ -49,9 +49,7 @@ hr{
 }
 
 
-h2{
-  position: float;
-}
+
 
 .material-icons{
   color:#ff5a5f;
@@ -59,6 +57,8 @@ h2{
   height: 100%;
 
 }
+
+
 
 
 
@@ -137,8 +137,7 @@ h2{
   text-align: left;
 }
 
-/* .button{
-  border: solid #ff5a5f;
-  
-} */
+.host{
+  align-items: right;
+}
   
