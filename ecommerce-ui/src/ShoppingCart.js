@@ -25,12 +25,14 @@ class ShoppingCart extends React.Component {
 
     removeItem = (idx) => {
         return (e) => {
+            const totalCost = this.state.total - Airbnbs[idx].payment.cost;
             const removedCartItems = this.state.cartItems.filter(function(item, itemIdx) {
                 if (idx !== itemIdx)
                     return item;
             });
             this.setState ({
-                cartItems: removedCartItems
+                cartItems: removedCartItems,
+                total: totalCost
             })
         }
     }
