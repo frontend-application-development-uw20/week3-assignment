@@ -86,13 +86,15 @@ hr{
 }
 
 .cart{
-  text-align: center;
+  justify-content: center;
 
 }
 
-.each_card{
-  border: 0.5px solid initial;
-  box-shadow: 5px 10px 20 px 1px black;
+.each-card{
+  /* border: 2px solid grey; */
+  padding: 30px; 
+  box-shadow: 10px 10px 5px grey;
+  box-sizing: border-box;
   margin: 10px;
   gap: 20px;
   display: grid;
@@ -101,32 +103,33 @@ hr{
 
 .image{
   
-  width:100%;
+  width: 100%;
   height: 100%;
   display: block;
   border-radius: 5%;
+  
 
 }
 
-.card_text{
+.card-text{
   display: grid;
   grid-template-rows : 50% 25% 25%;
 
 }
 
-.house_type{
+.house-type{
   color: rgb(70, 68, 68);
   font-family: Cambria, ;
   font-size: 20px ;
 }
 
-.house_cost{
+.house-cost{
   text-align: left;
   color:rgb(70, 68, 68);
 
 }
 
-.additional_details{
+.additional-details{
   display: grid;
   grid-template-columns: 25% 50% 25%;
   gap: 10px;
@@ -140,4 +143,10 @@ hr{
 .host{
   align-items: right;
 }
-  
+
+.new-airbnb-form{
+
+
+}
+
+
