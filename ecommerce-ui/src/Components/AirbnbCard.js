@@ -5,7 +5,6 @@ export default class AirbnbCard extends React.Component {
     
 
     render(){
-        // const {addFunc} = this.props;
         const description= this.props.card.payment.description;
         const isSuperhost= this.props.card.host.isSuperhost;
         

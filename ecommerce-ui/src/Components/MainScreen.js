@@ -287,7 +287,6 @@ class Main_screen extends React.Component {
                 <div className= "section">
                 {this.renderAirbnbList()}  
                 {this.state.hide? null: <div>{this.renderCart()}</div>}
-                {/* {this.renderCart()}  */}
                 </div>
 
             </div>
