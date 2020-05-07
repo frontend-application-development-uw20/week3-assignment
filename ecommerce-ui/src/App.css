@@ -1,0 +1,105 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 400px 300px 300px;
+  max-width: 1025px;
+  border: solid black;
+  grid-gap: 10px;
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.image {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1 / 5;
+}
+.location {
+  grid-column: 2 / 3;
+  grid-row: 1 / 1;
+}
+.rating {
+  display: grid;
+  grid-column: 3;
+  grid-row: 1 / 2;
+  justify-content: flex-end;
+}
+.title {
+  display: grid;
+  grid-column: 2 / 4;
+  grid-row: 2;
+  align-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+  color: rgb(97, 91, 91);
+}
+.description {
+  display: grid;
+  grid-column: 2 / 4;
+  grid-row: 3;
+  font-size: 20px;
+  font-style: italic;
+  color: rgb(97, 91, 91);
+}
+.price {
+  display: grid;
+  grid-column: 3;
+  grid-row: 4;
+  justify-content: flex-start;
+  align-content: center;
+}
+.add-remove {
+  display: grid;
+  grid-column: 3;
+  grid-row: 4;
+  align-content: center;
+  justify-content: flex-end;
+}
+.cart {
+  position: absolute;
+  background: rgb(167, 197, 204);
+  top: 10px;
+  right: 10px;
+  width: 450px;
+  height: 400px;
+}
+
