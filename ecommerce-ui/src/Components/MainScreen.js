@@ -228,7 +228,7 @@ class Main_screen extends React.Component {
                         </tr>
                         <tr>
                             <td>
-                                <input type= "text" name= 'cost' placeholder='Rental Cost' required /> 
+                                <input type= "number" name= 'cost' placeholder='Rental Cost' required /> 
                             </td>
                         </tr>
                         <tr>
