@@ -1,42 +1,17 @@
-h1 {
-    font-size: 25px;
-    text-align: left;
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    font-size: 15px;
+    text-align: center;
 }
 
-div {
-    text-align: left;
-}
-
-/* .column {
-    float: left;
-  }
-  
-  .left {
-    width: 50%;
-  }
-  
-  .right {
-    width: 50%;
-  } */ 
-/* .container {
-    display: inline-table;
-    flex-direction: row;
-    justify-content: left;
-}
-
-.child {
+.addbutton {
     display: block;
-    text-align: left;
-} */
-
-/* .payment {
-    display: inline-block;
 }
 
-.host {
-    display: inline-block;
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.rating {
-    display: inline-block;
-} */

@@ -8,38 +8,41 @@ class ShoppingCart extends React.Component {
         super(props);
         this.state = {
             cartItems: [],
-            total: 0,
-            inCart: false
+            total: 0
         }
     }
 
-    addItemToCart = (e) => {
-        e.preventDefault();
-        const updatedCartItems = {
-            title: [Airbnbs[0]].title
+    addItemToCart = (idx) => {
+        return (e) => {
+            e.preventDefault();
+            const totalCost = this.state.total + Airbnbs[idx].payment.cost;
+            this.setState({
+                cartItems: [...this.state.cartItems, Airbnbs[idx].title],
+                total: totalCost
+            })
         }
-        this.setState ({
-            cartItems: [...this.state.cartItems, updatedCartItems],
-            inCart: true
-        })
     }
 
-    removeItem = (e) => {
-        e.preventDefault();
-        this.setState ({
-            cartItems: [],
-            inCart: false
-        })
+    removeItem = (idx) => {
+        return (e) => {
+            const removedCartItems = this.state.cartItems.filter(function(item, itemIdx) {
+                if (idx !== itemIdx)
+                    return item;
+            });
+            this.setState ({
+                cartItems: removedCartItems
+            })
+        }
     }
 
     render() {
 
-        const { cartItems } = this.props;
+        const { addButton } = this.props;
 
         return (
             <div>
-                <BasicInfo addToCart={this.addItemToCart}/>
-                <CartItems cartItems={this.state.cartItems} removeFromCart={this.removeItem}/>
+                <BasicInfo airbnb={this.state.airbnb} addToCart={this.addItemToCart}/>
+                <CartItems cartItems={this.state.cartItems} removeFromCart={this.removeItem} total={this.state.total}/>
             </div>
 
         )

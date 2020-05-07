@@ -1,30 +1,36 @@
 import React from 'react';
 import './BasicInfo.css';
-import Manhattan from './Manhattan.js';
-import Denver from './Denver.js';
-import Gamla from './Gamla.js';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import ListingLayout from './ListingLayout.js';
 import Airbnbs from './airbnbs.json';
-
-const shoppingCart = <FontAwesomeIcon icon={faShoppingCart} />
+import PropTypes from 'prop-types';
 
 class BasicInfo extends React.Component {
-    constructor(props) {
-        super(props);
+
+    static propTypes = {
+        airbnbs: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            houseType: PropTypes.string.isRequired,
+            image: PropTypes.string.isRequired,
+            city: PropTypes.string.isRequired,
+            cost: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            isSuperhost: PropTypes.bool.isRequired,
+            stars: PropTypes.string.isRequired,
+            reviews: PropTypes.string.isRequired
+            })
     }
 
     render() {
         
-        const { addToCart } = this.props;
+        const { addToCart} = this.props;
 
         return(
-                <div>
-                    <Manhattan class="column left" addToCart={addToCart}/>
-                    <Denver class="column left" addToCart={addToCart}/>
-                    <Gamla class="column left" addToCart={addToCart}/>
-                    <h1 class="column left">Cart {shoppingCart}</h1>
-                </div>
+            <div class="container">
+                    {Airbnbs.map((airbnb, idx) => 
+                        <ListingLayout key={idx} airbnb={airbnb} addToCart={addToCart(idx)} />                    
+                    )}
+            </div>
         )
 
     }
