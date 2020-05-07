@@ -201,6 +201,7 @@ class Main_screen extends React.Component {
             <div className= "new-airbnb-form">
                 <form onSubmit={this.addAirbnbs}>
                     <table>
+                        <tbody>
                         <tr>
                             <td>
                                 <input type= "text" name= 'title' placeholder='Title' required/>
@@ -218,7 +219,7 @@ class Main_screen extends React.Component {
                         </tr>
                         <tr>
                             <td>
-                                <input type= "text" name= 'city' placeholder='City Name'  />
+                                <input type= "text" name= 'city' placeholder='City Name' required />
                             </td>
                         </tr>
                         <tr>
@@ -238,11 +239,11 @@ class Main_screen extends React.Component {
                         </tr>
                         <tr>
                             <td>
-                                <input type= "text" name= 'name' placeholder='Host Name'  /> 
+                                <input type= "text" name= 'name' placeholder='Host Name' required /> 
                             </td>
                         </tr>
                         
-
+                        </tbody>
                     </table>
                     
                     <button type="submit">Add Airbnb</button>  
@@ -255,17 +256,7 @@ class Main_screen extends React.Component {
         );
      }
 
-    
 
-
-
-    renderAirbnbList(){
-        return <AirbnbList airbnb_details={this.state.airbnb_details} onClick={this.handleClick}/>
-    }
-    renderCart(){
-        return <Cart cartList= {this.state.cartList} handleRemoveFromCart= {this.handleRemoveFromCart} />
-    
-    }
 
     render(){
         
@@ -285,8 +276,10 @@ class Main_screen extends React.Component {
                 </div>
                 <hr />
                 <div className= "section">
-                {this.renderAirbnbList()}  
-                {this.state.hide? null: <div>{this.renderCart()}</div>}
+                    <AirbnbList airbnb_details={this.state.airbnb_details} onClick={this.handleClick}/> 
+                    {this.state.hide? null: <div>
+                        <Cart cartList= {this.state.cartList} handleRemoveFromCart= {this.handleRemoveFromCart} />
+                        </div>}
                 </div>
 
             </div>
