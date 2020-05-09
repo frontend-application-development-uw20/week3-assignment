@@ -33,6 +33,7 @@ add in index.html
   }
   ...this.state,
 - getting file from public folder does not need ./ or ../. Public folder is the default path
+- PropTypes, set data types and required data
 
 
 - CSS (App.css)
@@ -44,6 +45,9 @@ add in index.html
     bottom: 0;
     right: 0;
   }
+- componentDidMount(): https://reactjs.org/docs/react-component.html
+- conditional rendering   
+  border-color: ${props => (props.cart ? "var(--mainYellow)" : "var(--lightBlue)")};
 
 ## Available Scripts
 
